@@ -1,17 +1,13 @@
-variable "env" {
-  description = "e.g. Dev, Production"
-}
-
-variable "location" {
-  description = "Location of resources"
-}
-
 variable "resource_prefix" {
   description = "The prefix used to name all resources"
 }
 
 variable "cidr_vnet" {
   description = "Address space of vnet"
+}
+
+variable "env" {
+  description = "e.g. Dev, Production"
 }
 
 variable "owner" {

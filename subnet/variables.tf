@@ -15,7 +15,7 @@ variable "snet_name" {
 }
 
 variable "snet_cidr" {
-  description = ""
+  description = "The cidr of subnet to be created in vnet"
 }
 
 variable "add_nsg" {

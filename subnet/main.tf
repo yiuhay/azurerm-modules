@@ -42,7 +42,7 @@ resource "azurerm_network_security_rule" "custom_rules" {
 }
 
 resource "azurerm_subnet_network_security_group_association" "security_group_association" {
-  count                     = var.add_security_group == 1 ? 1 : 0}
+  count                     = var.add_nsg == 1 ? 1 : 0
   subnet_id                 = azurerm_subnet.snet.id
   network_security_group_id = azurerm_network_security_group.nsg.id
 }

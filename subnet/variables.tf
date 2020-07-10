@@ -1,13 +1,9 @@
-variable "env" {
-  description = "e.g. Dev, Production"
-}
-
-variable "location" {
-  description = "Location of resources"
-}
-
 variable "resource_prefix" {
   description = "The prefix used to name all resources"
+}
+
+variable "env" {
+  description = "e.g. Dev, Production"
 }
 
 variable "owner" {
@@ -16,6 +12,10 @@ variable "owner" {
 
 variable "snet_name" {
   description = "The name of the subnet"
+}
+
+variable "snet_address_prefix" {
+  description = "The address prefix of the subnet where the virtual machine will be put into."
 }
 
 variable "add_nsg" {

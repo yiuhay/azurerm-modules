@@ -9,7 +9,7 @@ module "labels" {
 }
 
 resource "azurerm_subnet" "snet" {
-  count                     = var.add_nsg == 1 : 0
+  count                     = var.add_nsg == [1] : [0]
   name                      = local.azurerm_snet_name
   resource_group_name       = data.azurerm_resource_group.rg.name
   virtual_network_name      = data.azurerm_virtual_network.vnet.name
@@ -42,7 +42,7 @@ resource "azurerm_network_security_rule" "custom_rules" {
 }
 
 resource "azurerm_subnet_network_security_group_association" "security_group_association" {
-  count                     = var.add_nsg == 1 : 0
+  count                     = var.add_nsg == [1] : [0]
   subnet_id                 = azurerm_subnet.snet.id
   network_security_group_id = azurerm_network_security_group.nsg.id
 }

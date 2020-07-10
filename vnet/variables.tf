@@ -2,7 +2,7 @@ variable "resource_prefix" {
   description = "The prefix used to name all resources"
 }
 
-variable "cidr_vnet" {
+variable "vnet_cidr" {
   description = "Address space of vnet"
 }
 

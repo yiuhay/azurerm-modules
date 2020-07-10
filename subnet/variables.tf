@@ -14,8 +14,8 @@ variable "snet_name" {
   description = "The name of the subnet"
 }
 
-variable "snet_address_prefix" {
-  description = "The address prefix of the subnet where the virtual machine will be put into."
+variable "snet_cidr" {
+  description = ""
 }
 
 variable "add_nsg" {

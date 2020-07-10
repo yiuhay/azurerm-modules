@@ -13,7 +13,7 @@ resource "azurerm_subnet" "snet" {
   name                      = local.azurerm_snet_name
   resource_group_name       = data.azurerm_resource_group.rg.name
   virtual_network_name      = data.azurerm_virtual_network.vnet.name
-  address_prefix            = var.snet_address_prefix
+  address_prefix            = var.snet_cidr
 }
 
 resource "azurerm_network_security_group" "nsg" {

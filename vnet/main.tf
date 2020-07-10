@@ -10,7 +10,7 @@ module "labels" {
 
 resource "azurerm_virtual_network" "vnet" {
   name                = local.azurerm_vnet_name
-  address_space       = [var.cidr_vnet]
+  address_space       = [var.vnet_cidr]
   resource_group_name = data.azurerm_resource_group.rg.name
   location            = data.azurerm_resource_group.rg.location
 

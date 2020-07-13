@@ -26,7 +26,7 @@ resource "azurerm_subnet" "subnet_no_nsg" {
 
 resource "azurerm_network_security_group" "nsg" {
   for_each            = var.add_nsg == 1
-  name                = local.azurerm_network_nsg_name
+  name                = local.azurerm_nsg_name
   location            = data.azurerm_resource_group.rg.location
   resource_group_name = data.azurerm_resource_group.rg.name
 

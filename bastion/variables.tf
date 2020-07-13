@@ -21,6 +21,6 @@ locals {
   azurerm_vnet_name        = "${var.resource_prefix}-${var.env}-vnet"
   azurerm_bastion_name     = "${var.resource_prefix}-${var.env}-bastion"
   azurerm_bastion_pip      = "${local.azurerm_bastion_name}-pip"
-  azurerm_bastion_nsg_name = "${var.resource_prefix}-${var.env}-${data.azurerm_subnet.bastion_subnet.name}-nsg"
+  azurerm_bastion_nsg_name = "${var.resource_prefix}-${var.env}-${data.azurerm_subnet.bastion_snet.name}-nsg"
   azurerm_target_nsg_name  = "${var.resource_prefix}-${var.env}-${var.target_snet_name}-nsg"
 }

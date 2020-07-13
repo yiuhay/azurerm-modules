@@ -19,7 +19,7 @@ resource "azurerm_public_ip" "bastion_pip" {
 }
 
 resource "azurerm_bastion_host" "bastion" {
-  name                 = local.azurerm_bastion_name
+  name                = local.azurerm_bastion_name
   resource_group_name = data.azurerm_resource_group.rg.name
   location            = data.azurerm_resource_group.rg.location
 

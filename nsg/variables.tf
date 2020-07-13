@@ -25,6 +25,6 @@ locals {
   # {azurerm_resource_prefix}-{environment}-RESOURCE_TYPE
   azurerm_rg_name   = "${var.resource_prefix}-${var.env}-rg"
   azurerm_vnet_name = "${var.resource_prefix}-${var.env}-vnet"
-  azurerm_snet_name = "${var.resource_prefix}-${var.env}-${var.snet_name}-snet"
+  azurerm_snet_name = "${var.resource_prefix}-${var.env}-${var.snet_name}"
   azurerm_nsg_name  = "${var.resource_prefix}-${var.env}-${var.snet_name}-nsg"
 }

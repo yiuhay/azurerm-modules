@@ -52,5 +52,5 @@ resource "azurerm_network_security_rule" "custom_rules" {
 resource "azurerm_subnet_network_security_group_association" "security_group_association" {
   for_each                  = var.add_nsg == 1
   subnet_id                 = azurerm_subnet.subnet.id
-  network_security_group_id = {azurerm_network_security_group.nsg.id
+  network_security_group_id = azurerm_network_security_group.nsg.id
 }

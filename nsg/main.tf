@@ -31,7 +31,7 @@ resource "azurerm_network_security_rule" "custom_rules" {
   network_security_group_name = azurerm_network_security_group.nsg.name
 }
 
-resource "azurerm_subnet_network_security_group_association" "snet_internal_assoc" {
+resource "azurerm_subnet_network_security_group_association" "snet_assoc" {
   subnet_id                 = data.azurerm_subnet.snet.id
   network_security_group_id = azurerm_network_security_group.nsg.id
 }

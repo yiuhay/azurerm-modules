@@ -14,6 +14,12 @@ variable "snet_name" {
   description = "The name of the snet"
 }
 
+variable "custom_rules" {
+  description = "Security rules for the network security group using this format name = [priority, direction, access, protocol, source_port_range, destination_port_range, source_address_prefix, destination_address_prefix, description]"
+  type        = list(any)
+  default     = []
+}
+
 locals {
   # Define resource names based on the following convention:
   # {azurerm_resource_prefix}-{environment}-RESOURCE_TYPE

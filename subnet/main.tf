@@ -9,7 +9,15 @@ module "labels" {
 }
 
 resource "azurerm_subnet" "snet" {
-  count                     = var.add_nsg == [1] : [0]
+  count                     = var.add_nsg == 1
+  name                      = local.azurerm_snet_name
+  resource_group_name       = data.azurerm_resource_group.rg.name
+  virtual_network_name      = data.azurerm_virtual_network.vnet.name
+  address_prefixes          = var.snet_cidr
+}
+
+resource "azurerm_subnet" "subnet_no_nsg" {
+  count                     = var.add_nsg == 0
   name                      = local.azurerm_snet_name
   resource_group_name       = data.azurerm_resource_group.rg.name
   virtual_network_name      = data.azurerm_virtual_network.vnet.name
@@ -17,8 +25,8 @@ resource "azurerm_subnet" "snet" {
 }
 
 resource "azurerm_network_security_group" "nsg" {
-  count               = var.add_nsg
-  name                = local.azurerm_nsg_name
+  count               = var.add_security_group
+  name                = local.azurerm_network_nsg_name
   location            = data.azurerm_resource_group.rg.location
   resource_group_name = data.azurerm_resource_group.rg.name
 
@@ -42,7 +50,7 @@ resource "azurerm_network_security_rule" "custom_rules" {
 }
 
 resource "azurerm_subnet_network_security_group_association" "security_group_association" {
-  count                     = var.add_nsg == [1] : [0]
-  subnet_id                 = azurerm_subnet.snet.id
-  network_security_group_id = azurerm_network_security_group.nsg.id
+  count                     = var.add_nsg == 1
+  subnet_id                 = azurerm_subnet.subnet.id
+  network_security_group_id = {azurerm_network_security_group.nsg.id
 }

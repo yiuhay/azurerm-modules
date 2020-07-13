@@ -132,7 +132,7 @@ resource "azurerm_network_security_rule" "target_ingress_ssh" {
   source_address_prefixes     = data.azurerm_subnet.bastion_snet.address_prefixes
   destination_address_prefix  = "*"
   resource_group_name         = data.azurerm_resource_group.rg.name
-  network_security_group_name = local.azurerm_network_security_group.target_nsg
+  network_security_group_name = data.azurerm_network_security_group.target_nsg
 }
 
 resource "azurerm_network_security_rule" "target_ingress_rdp" {
@@ -146,5 +146,5 @@ resource "azurerm_network_security_rule" "target_ingress_rdp" {
   source_address_prefixes     = data.azurerm_subnet.bastion_snet.address_prefixes
   destination_address_prefix  = "*"
   resource_group_name         = data.azurerm_resource_group.rg.name
-  network_security_group_name = local.azurerm_network_security_group.target_nsg
+  network_security_group_name = data.azurerm_network_security_group.target_nsg
 }

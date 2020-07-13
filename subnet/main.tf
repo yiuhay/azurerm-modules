@@ -17,7 +17,7 @@ resource "azurerm_subnet" "snet" {
 }
 
 resource "azurerm_subnet" "subnet_no_nsg" {
-  for_each                  = var.add_nsg 0 ? 1 : 0
+  count                     = var.add_nsg 0 ? 1 : 0
   name                      = local.azurerm_snet_name
   resource_group_name       = data.azurerm_resource_group.rg.name
   virtual_network_name      = data.azurerm_virtual_network.vnet.name

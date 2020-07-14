@@ -3,7 +3,7 @@ module "labels" {
   
   tags = {
     "environment" = var.env
-    "project"     = var.project
+    "project"     = var.resource_prefix
     "owner"       = var.owner
   }
 }

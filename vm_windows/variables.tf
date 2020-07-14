@@ -52,14 +52,15 @@ variable "win_admin_password" {
 locals {
   # Define resource names based on the following convention:
   # {azurerm_resource_prefix}-{environment}-RESOURCE_TYPE
-  azurerm_rg_name           = "${var.resource_prefix}-${var.env}-rg"
-  azurerm_rg_secret_name    = "${var.resource_prefix}-${var.env}-secret-rg"
-  azurerm_vnet_name         = "${var.resource_prefix}-${var.env}-vnet"
-  azurerm_snet_name         = "${var.resource_prefix}-${var.env}-${var.snet_name}"
-  azurerm_kv_name           = "${var.resource_prefix}-${var.env}-kv"
-  azurerm_nic_name          = "${var.resource_prefix}-${var.env}-${var.vm_name}-nic"
-  azurerm_vm_name           = "${var.resource_prefix}-${var.env}-${var.vm_name}-vm"
-  azurerm_vm_os_disk_name   = "${var.resource_prefix}-${var.env}-${var.vm_name}-os"
-  azurerm_vm_computer_name  = "digi-az-${var.vm_name}"
-  azurerm_vm_data_disk_name = "${var.resource_prefix}-${var.env}-${var.vm_name}-data"
+  azurerm_rg_name            = "${var.resource_prefix}-${var.env}-rg"
+  azurerm_rg_secret_name     = "${var.resource_prefix}-${var.env}-secret-rg"
+  azurerm_vnet_name          = "${var.resource_prefix}-${var.env}-vnet"
+  azurerm_snet_name          = "${var.resource_prefix}-${var.env}-${var.snet_name}"
+  azurerm_kv_name            = "${var.resource_prefix}-${var.env}-kv"
+  azurerm_nic_name           = "${var.resource_prefix}-${var.env}-${var.vm_name}-nic"
+  azurerm_nic_ip_config_name = "${var.resource_prefix}-${var.env}-${var.vm_name}-nic-ip-config"
+  azurerm_vm_name            = "${var.resource_prefix}-${var.env}-${var.vm_name}-vm"
+  azurerm_vm_os_disk_name    = "${var.resource_prefix}-${var.env}-${var.vm_name}-os"
+  azurerm_vm_computer_name   = "digi-az-${var.vm_name}"
+  azurerm_vm_data_disk_name  = "${var.resource_prefix}-${var.env}-${var.vm_name}-data"
 }

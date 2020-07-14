@@ -14,7 +14,7 @@ resource "azurerm_network_interface" "nic_windows" {
   location            = data.azurerm_resource_group.rg.location
 
   ip_configuration {
-    name                          = local.azurerm_nic_ip_configuration_name
+    name                          = local.azurerm_nic_ip_config_name
     subnet_id                     = data.azurerm_subnet.snet.id
     private_ip_address_allocation = "Static"
     private_ip_address            = var.vm_private_ip

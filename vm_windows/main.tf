@@ -28,7 +28,7 @@ resource "azurerm_virtual_machine" "windows" {
   resource_group_name   = data.azurerm_resource_group.rg.name
   location              = data.azurerm_resource_group.rg.location
   vm_size               = var.vm_size
-  network_interface_ids = azurerm_network_interface.nic_windows.id
+  network_interface_ids = [azurerm_network_interface.nic_windows.id]
 
   os_profile_windows_config {
     provision_vm_agent = true

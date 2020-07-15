@@ -10,7 +10,7 @@ variable "owner" {
   description = "tagging purposes"
 }
 
-variable "subscription_seret" {
+variable "subscription_secret_id" {
   description = "Subscription ID where Key Vault is"
 }
 
@@ -51,10 +51,6 @@ variable "data_disk_size" {
 
 variable "win_admin_password" {
   description = "Key Vault Secret Name"
-}
-
-variable "kv_uri" {
-  description = "Key Vault uri"
 }
 
 locals {

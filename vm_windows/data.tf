@@ -15,6 +15,6 @@ data "azurerm_subnet" "snet" {
 
 data "azurerm_key_vault_secret" "winadmin" {
   name         = var.win_admin_password
-  key_vault_id = "/subscriptions/${var.subscription_secret_id}/resourceGroups/${local.azurerm_rg_secret_name}/providers/Microsoft.KeyVault/vaults/${local.azurerm_kv_name}"
+  key_vault_id = local.azurerm_subscription_secret_id
   provider     = azurerm.keyvaultProvider
 }

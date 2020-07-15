@@ -10,6 +10,10 @@ variable "owner" {
   description = "tagging purposes"
 }
 
+variable "subscription_secret_id" {
+  description = "Subscription ID where Key Vault is"
+}
+
 variable "onprem_public_ip" {
   description = "Public IP for on premise"
 }
@@ -58,10 +62,13 @@ variable "pfs_group" {
 locals {
   # Define resource names based on the following convention:
   # {azurerm_resource_prefix}-{environment}-RESOURCE_TYPE
-  azurerm_rg_name   = "${var.resource_prefix}-${var.env}-rg"
-  azurerm_vnet_name = "${var.resource_prefix}-${var.env}-vnet"
-  azurerm_vgw_name  = "${var.resource_prefix}-${var.env}-vgw"
-  azurerm_vgw_pip   = "${local.azurerm_vgw_name}-pip"
-  azurerm_lgw_name  = "${var.resource_prefix}-${var.env}-lgw"
-  azurerm_cn_name   = "${local.azurerm_lgw_name}-to-${local.azurerm_vgw_name}-cn"
+  azurerm_rg_name                = "${var.resource_prefix}-${var.env}-rg"
+  azurerm_rg_secret_name         = "${var.resource_prefix}-${var.env}-secret-rg"
+  azurerm_kv_name                = "${var.resource_prefix}-${var.env}-kv"
+  azurerm_vnet_name              = "${var.resource_prefix}-${var.env}-vnet"
+  azurerm_vgw_name               = "${var.resource_prefix}-${var.env}-vgw"
+  azurerm_vgw_pip                = "${local.azurerm_vgw_name}-pip"
+  azurerm_lgw_name               = "${var.resource_prefix}-${var.env}-lgw"
+  azurerm_cn_name                = "${local.azurerm_lgw_name}-to-${local.azurerm_vgw_name}-cn"
+  azurerm_subscription_secret_id = "/subscriptions/${var.subscription_secret_id}/resourceGroups/${local.azurerm_rg_secret_name}/providers/Microsoft.KeyVault/vaults/${local.azurerm_kv_name}"
 }

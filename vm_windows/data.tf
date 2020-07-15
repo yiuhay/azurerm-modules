@@ -17,12 +17,7 @@ data "azurerm_subnet" "snet" {
   resource_group_name  = data.azurerm_resource_group.rg.name
 }
 
-data "azurerm_key_vault" "kv" {
-  name                = local.azurerm_kv_name
-  resource_group_name = data.azurerm_resource_group.rg_secret.name
-}
-
 data "azurerm_key_vault_secret" "winadmin" {
-  name         = var.win_admin_password
-  key_vault_id = data.azurerm_key_vault.kv.id
+  name      = var.win_admin_password
+  vault_uri = var.kv_uri
 }

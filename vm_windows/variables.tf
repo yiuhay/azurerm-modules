@@ -49,6 +49,10 @@ variable "win_admin_password" {
   description = "Key Vault Secret Name"
 }
 
+variable "kv_uri" {
+  description = "Key Vault uri"
+}
+
 locals {
   # Define resource names based on the following convention:
   # {azurerm_resource_prefix}-{environment}-RESOURCE_TYPE
